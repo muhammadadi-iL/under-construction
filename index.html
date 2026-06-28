@@ -17,6 +17,7 @@
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
+            user-select: none;
         }
 
         .container {
@@ -44,6 +45,25 @@
     <noscript>
         <meta http-equiv="refresh" content="0;url=/under-construction/noscript-warning.html">
     </noscript>
+
+    <script>
+        document.addEventListener("contextmenu", e => e.preventDefault());
+        
+        document.addEventListener("keydown", function(e) {
+            const key = e.key.toLowerCase();
+        
+            if (
+                key === "f12" ||
+                (e.ctrlKey && e.shiftKey && ["i","j","c"].includes(key)) ||
+                (e.ctrlKey && key === "u") ||
+                (e.metaKey && e.altKey && ["i","j","c"].includes(key)) ||
+                (e.metaKey && key === "u")
+            ) {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
 </head>
 
 <body>
